@@ -1,0 +1,37 @@
+env:
+  global:
+  - CI_HOME=`pwd`/../../
+ 
+language: php
+
+php:
+- 5.5
+
+services:
+- memcached
+- redis-server
+- elasticsearch
+- rabbitmq
+
+
+before_install:
+- pwd
+- cd $CI_HOME/../..
+- pwd
+
+install:
+- cd $CI_HOME
+
+
+before_script:
+- mysql -e 'create database swift;'
+- mysql -e 'create database swiftv5;'
+
+script:
+- cd $CI_HOME
+
+after_script:
+
+
+after_success:
+- cd $CI_HOME
