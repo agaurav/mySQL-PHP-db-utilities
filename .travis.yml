@@ -24,8 +24,7 @@ install:
 
 
 before_script:
-- mysql -e 'create database swift;'
-- mysql -e 'create database swiftv5;'
+
 
 script:
 - cd $CI_HOME
